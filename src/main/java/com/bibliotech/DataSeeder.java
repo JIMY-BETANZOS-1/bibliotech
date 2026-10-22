@@ -22,7 +22,7 @@ public class DataSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) {
         students.save(new Student(1L, "Ana Torres"));
-        students.save(new Student(2L, "Luis Quispe"));
+        students.save(new Student(2L, "Luis Quispe", true)); // suspendido
         books.save(new Book(1L, "Ingeniería de Software", 2));
         books.save(new Book(2L, "Redes de Computadoras", 1));
         books.save(new Book(3L, "Bases de Datos", 5));

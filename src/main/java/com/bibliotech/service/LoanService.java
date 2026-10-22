@@ -32,6 +32,9 @@ public class LoanService {
         Book book = books.findById(bookId)
                 .orElseThrow(() -> new BusinessRuleException("Libro no encontrado"));
 
+        if (student.isSuspended()) {
+            throw new BusinessRuleException("El estudiante está suspendido y no puede solicitar préstamos");
+        }
         if (loans.countActiveByStudent(student.getId()) >= MAX_ACTIVE_LOANS) {
             throw new BusinessRuleException("El estudiante alcanzó el límite de préstamos activos");
         }
